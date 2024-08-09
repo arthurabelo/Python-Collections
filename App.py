@@ -4,7 +4,6 @@ from tkinter import ttk
 from tkinter import Canvas
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from tkPDFViewer import tkPDFViewer as pdf
 
 class App(tk.Tk):
     def __init__(self):
@@ -40,16 +39,13 @@ class App(tk.Tk):
                 self.display_pdf()
             else:
                 self.display_grafico(question)
-            self.create_canvas(selected)
-    
-    def create_canvas(self, tab):
-        canvas = Canvas(tab, width=800, height=400, background="grey")
-        canvas.pack()
         
     def display_pdf(self):
-        os.startfile('Questão 1.pdf')
+        os.startfile('questoes/Questão 1.pdf')
 
     def display_grafico(self, question):
+        if hasattr(self, 'canvas'):
+            self.canvas.get_tk_widget().pack_forget()
         labels = ['A', 'B', 'C']  # Example labels
         values = [1, 2, 3]  # Example values
 
@@ -64,9 +60,9 @@ class App(tk.Tk):
             ax.bar(labels, values)
             ax.set_title('Tempo de Exclusão por Container')
 
-        canvas = FigureCanvasTkAgg(fig, master=self)
-        canvas.draw()
-        canvas.get_tk_widget().pack()
+        self.canvas = FigureCanvasTkAgg(fig, master=self)
+        self.canvas.draw()
+        self.canvas.get_tk_widget().pack()
 
 if __name__ == '__main__':
     app = App()
