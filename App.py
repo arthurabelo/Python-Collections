@@ -1,14 +1,18 @@
 import os
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter import Canvas
+
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
+from Grafico import *
 
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Análise de Containers em Python")
+        self.title("Análise de Containers Collections em Python")
         self.geometry("800x800")
         self.wm_state('zoomed')
         self.create_widgets()
@@ -34,35 +38,46 @@ class App(tk.Tk):
     def show_result(self):
         selected = self.abas.select()
         if selected:
-            question = self.abas.index(selected) + 1
-            if question == 1:
+            questao = self.abas.index(selected) + 1
+            if questao == 1:
                 self.display_pdf()
             else:
-                self.display_grafico(question)
+                self.display_grafico(questao)
         
     def display_pdf(self):
         os.startfile('questoes/Questão 1.pdf')
 
-    def display_grafico(self, question):
-        if hasattr(self, 'canvas'):
-            self.canvas.get_tk_widget().pack_forget()
+    def display_grafico(self, questao):
+        grafico = Grafico(questao)
+        labels, values = grafico.construir_grafico()
         labels = ['A', 'B', 'C']  # Example labels
         values = [1, 2, 3]  # Example values
 
         fig, ax = plt.subplots()
-        if question == 2:
+        if questao == 2:
+            if hasattr(self, 'canvas2'):
+                self.canvas2.get_tk_widget().pack_forget()
             ax.bar(labels, values)
             ax.set_title('Tempo de Inserção por Container')
-        elif question == 3:
+            self.canvas2 = FigureCanvasTkAgg(fig, master=self.aba2)
+            self.canvas2.draw()
+            self.canvas2.get_tk_widget().pack(pady=4)
+        elif questao == 3:
+            if hasattr(self, 'canvas3'):
+                self.canvas3.get_tk_widget().pack_forget()
             ax.bar(labels, values)
             ax.set_title('Tempo de Consulta por Container')
-        elif question == 4:
+            self.canvas3 = FigureCanvasTkAgg(fig, master=self.aba3)
+            self.canvas3.draw()
+            self.canvas3.get_tk_widget().pack(pady=4)
+        elif questao == 4:
+            if hasattr(self, 'canvas4'):
+                self.canvas4.get_tk_widget().pack_forget()
             ax.bar(labels, values)
             ax.set_title('Tempo de Exclusão por Container')
-
-        self.canvas = FigureCanvasTkAgg(fig, master=self)
-        self.canvas.draw()
-        self.canvas.get_tk_widget().pack()
+            self.canvas4 = FigureCanvasTkAgg(fig, master=self.aba4)
+            self.canvas4.draw()
+            self.canvas4.get_tk_widget().pack(pady=4)
 
 if __name__ == '__main__':
     app = App()
