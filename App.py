@@ -85,13 +85,13 @@ class App(tk.Tk):
         if questao == 2:
             if hasattr(self, 'canvas2'):
                 self.canvas2.get_tk_widget().pack_forget()
-            ax.bar(labels, values)
+            ax.barh(labels, values)
             ax.set_title('Tempo de Inserção por Container')
-            plt.xlabel('Containers')
-            plt.ylabel('Tempo de Inserção (s)')
+            plt.xlabel('Tempo de Inserção (s)')
+            plt.ylabel('Containers')
             self.canvas2 = FigureCanvasTkAgg(fig, master=self.aba2)
             self.canvas2.draw()
-            self.canvas2.get_tk_widget().pack(pady=4)
+            self.canvas2.get_tk_widget().pack(fill='both', expand=True, pady=4)
         elif questao == 3:
             if hasattr(self, 'canvas3'):
                 self.canvas3.get_tk_widget().pack_forget()
