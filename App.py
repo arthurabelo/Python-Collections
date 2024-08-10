@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 import tkinter as tk
 from tkinter import ttk
@@ -70,7 +71,11 @@ class App(tk.Tk):
                 self.display_grafico(questao)
         
     def display_pdf(self):
-        os.startfile('questoes/Questão 1.pdf')
+        pdf_path = os.path.join(os.getcwd(), 'questoes/Questão 1.pdf')
+        if os.path.exists(pdf_path):
+            subprocess.Popen([pdf_path], shell=True)
+        else:
+            print("PDF file not found.")
 
     def display_grafico(self, questao):
         grafico = Grafico(questao)
