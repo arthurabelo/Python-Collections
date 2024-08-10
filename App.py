@@ -75,8 +75,6 @@ class App(tk.Tk):
     def display_grafico(self, questao):
         grafico = Grafico(questao)
         labels, values = grafico.construir_grafico()
-        labels = ['A', 'B', 'C']  # Example labels
-        values = [1, 2, 3]  # Example values
 
         fig, ax = plt.subplots()
         if questao == 2:

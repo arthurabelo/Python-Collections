@@ -18,11 +18,16 @@ class Grafico:
                    containers.insert_counter,containers.insert_ordereddict, containers.insert_deque, 
                    containers.insert_chainmap,containers.insert_userdict, containers.insert_userlist, 
                    containers.insert_userstring]
-
+        
+        values = []
         for metodo in metodos:
             tempo_decorrido = medir_tempo(metodo, palavras)
+            values.append(tempo_decorrido)
+            
+        labels = ['dict','list','set','tuple','namedtuple','defaultdict','counter','ordereddict','deque','chainmap','userdict','userlist','userstring']
             
         return labels, values
+    
 if __name__ == '__main__':
     # TESTE
     grafico = Grafico(2)
