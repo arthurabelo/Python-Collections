@@ -19,13 +19,9 @@ Este projeto visa medir o desempenho de diferentes estruturas de dados fornecida
 
 Para executar este projeto, siga os passos abaixo:
 
-1. Clone o repositório:
+- Clone o repositório:
     ```sh
-    git clone <URL_DO_REPOSITORIO>
-    ```
-2. Navegue até o diretório do projeto:
-    ```sh
-    cd <NOME_DO_DIRETORIO>
+    git clone https://github.com/arthurabelo/Python-Collections.git
     ```
 
 ## Uso
