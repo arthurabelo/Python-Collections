@@ -30,7 +30,7 @@ Para executar este projeto, siga os passos abaixo:
 
 1. Clique em `Tratar arquivo` para tratar o arquivo `leipzig100k.txt`
 
-Esta ação irá gerar um arquivo [`leipzig100k_tratado.txt`] com as palavras tratadas.
+Esta ação irá gerar um arquivo `leipzig100k_tratado.txt` com as palavras tratadas.
 
 ### Seleção da questão
 
@@ -49,11 +49,11 @@ Containers.py
 Grafico.py
 ```
 
-App.py: Script para tratar o arquivo de entrada e implementar interface gráfica
-Containers.py: Implementação das funções de inserção para diferentes estruturas de dados.
-Grafico.py: Script para medir o tempo de inserção e construir o gráfico.
-leipzig100k.txt: Arquivo de entrada com as palavras a serem analisadas.
-leipzig100k_tratado.txt: Arquivo de saída com as palavras tratadas. Foi criado esse método para facilitar a execução em menos tempo e evitar sobrecarga desnecessária.
+- App.py: Script para tratar o arquivo de entrada e implementar interface gráfica
+- Containers.py: Implementação das funções de inserção para diferentes estruturas de dados.
+- Grafico.py: Script para medir o tempo de inserção e construir o gráfico.
+- leipzig100k.txt: Arquivo de entrada com as palavras a serem analisadas.
+- leipzig100k_tratado.txt: Arquivo de saída com as palavras tratadas. Foi criado esse método para facilitar a execução em menos tempo e evitar sobrecarga desnecessária.
 ## Resultados
 Os resultados da análise de tempo serão exibidos no console após a execução do script Grafico.py. Eles incluem o tempo de inserção para cada estrutura de dados.
 
