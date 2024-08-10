@@ -19,10 +19,10 @@ class Grafico:
                    containers.insert_chainmap,containers.insert_userdict, containers.insert_userlist, 
                    containers.insert_userstring]
         
-        values = []
+        labels = []
         for metodo in metodos:
             tempo_decorrido = medir_tempo(metodo, palavras)
-            values.append(tempo_decorrido)
+            labels.append(tempo_decorrido)
             
         labels = ['dict','list','set','tuple','namedtuple','defaultdict','counter','ordereddict','deque','chainmap','userdict','userlist','userstring']
             
